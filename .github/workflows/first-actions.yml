@@ -28,7 +28,7 @@ jobs:
         python -m pytest addition.py
 
     - name: Deploy to EC2
-      if: success()  # Only deploy if tests pass
+      if: success()  # Only deploy if tests pass #
       uses: appleboy/ssh-action@v0.1.5
       with:
         host: ${{ secrets.EC2_HOST }}
