@@ -26,17 +26,4 @@ jobs:
       run: |
         cd src
         python -m pytest addition.py
-
-    - name: Deploy to EC2
-      if: success()  # Only deploy if tests pass #
-      uses: appleboy/ssh-action@v0.1.5
-      with:
-        host: ${{ secrets.EC2_HOST }}
-        username: ${{ secrets.EC2_USER }}
-        key: ${{ secrets.EC2_SSH_KEY }}
-        port: 22
-        script: |
-          cd /path/to/your/project
-          git pull origin main    
         
-  
